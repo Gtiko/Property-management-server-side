@@ -1,0 +1,1 @@
+exports.PRIVATE_KEY = "CS477";

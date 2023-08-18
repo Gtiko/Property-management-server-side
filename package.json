@@ -1,0 +1,20 @@
+{
+  "name": "final-project-gtiko",
+  "version": "1.0.0",
+  "description": "[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-f4981d0f882b2a3f0472912d15f9806d57e124e0fc890972558857b51b24a6f9.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=10537782)\r # CS477-2023-03-Final-Project\r ## Implement a server to manage buildings in an area using NodeJS and MongoDB\r ### Database: MongoDB\r * Name: `CS477`\r * The collection `users`\r ```JavaScript\r {\r     name: String,\r     email: String, //unique\r     password: String,\r     phone: String,\r     role: String\r }\r e.g.\r {\r     name: \"Michael\",\r     emai: \"michael@miu.edu\",\r     password: \"fadfasdfasdfas\", //hashed\r     phone: \"123\",\r     role: 'admin'\r }\r * The collection `buildings`\r {\r     name: String,\r     code: String, //unique\r     address: String\r     apartments: [\r         {\r             code: String, //unique,\r             capacity: Number,\r             vacancies: Number,\r             residents: [String],\r             devices: [\r                 {\r                     code: String,\r                     description: String\r                 }\r             ]\r         }\r     ]\r }\r e.g.\r {\r     name: \"Vastu\",\r     code: \"VA\", //unique\r     address: \"Fairfield, IA\"\r     apartments: [\r         {\r             code: \"VA01\", //unique,\r             capacity: 5,\r             vacancies: 4,\r             residents: [\"michael@miu.edu\"],\r             devices: [\r                 {\r                     code: \"VA01-Net01\",\r                     description: \"Internet device\"\r                 }\r             ]\r         }\r     ]\r }\r ```\r ### The followings are functions this system should satisfy\r * Email of each user is unique\r * A role can be either an admin or a user. \r * An admin can perform all functions as below.\r - Sign In\r - CRUD a user/admin\r - CRUD buildings/apartments/devices\r - All actions a user can do\r * A user can do the following functions.\r - Sign In\r - Get information of apartments\r - Check-in in an apartment\r - Check-out an apartment\r - Upload a profile picture\r * You should initialize an admin user in the database before starting the server for the first time\r * The number of residents in a apartment should be less than or equal its capacity\r * All codes are unique\r * You should write the code in MVC model\r * You API should comply with RESTful naming standard\r * You should handle all error cases\r ### Report time: \r * You will have 10 minutes to report to me this Tuesday (03/21/2023)\r * You just demostrate the program and answer my question about your code\r * You DO NOT need to prepare any report documents",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongodb": "^5.1.0",
+    "nodemon": "^2.0.21"
+  }
+}
